@@ -154,6 +154,9 @@ let g:vimtex_format_enabled = 1
 autocmd BufWritePost *.py call flake8#Flake8()
 let g:flake8_show_in_gutter = 1
 
+" Termdebug
+let g:termdebug_wide=1
+
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 
