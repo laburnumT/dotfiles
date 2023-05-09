@@ -125,7 +125,7 @@ let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
 " Bind format to \f
-nnoremap <leader>f :YcmCompleter Format<CR>
+nnoremap <leader>f :FormatCode<CR>
 
 " Bind refactor to \r
 nnoremap <leader>r :execute 'YcmCompleter RefactorRename' input( 'Rename to: ' )<CR>
@@ -190,6 +190,12 @@ Plug 'nvie/vim-flake8'
 Plug 'tomasiser/vim-code-dark'
 
 Plug 'ryanoasis/vim-devicons'
+
+Plug 'dense-analysis/ale'
+
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
 call plug#end()
 
 " Colourscheme
