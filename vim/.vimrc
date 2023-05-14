@@ -196,6 +196,8 @@ Plug 'dense-analysis/ale'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
+
+Plug 'wesQ3/vim-windowswap'
 call plug#end()
 
 " Colourscheme
