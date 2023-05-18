@@ -157,6 +157,11 @@ let g:flake8_show_in_gutter = 1
 " Termdebug
 let g:termdebug_wide=1
 
+" ALE
+let g:ale_pattern_options = {
+      \ 'Termdebug-asm-listing': {'ale_enabled': 0},
+      \ }
+
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 
