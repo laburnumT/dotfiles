@@ -204,6 +204,8 @@ Plug 'google/vim-glaive'
 Plug 'wesQ3/vim-windowswap'
 
 Plug 'will133/vim-dirdiff'
+
+Plug 'jamessan/vim-gnupg'
 call plug#end()
 
 " Colourscheme
