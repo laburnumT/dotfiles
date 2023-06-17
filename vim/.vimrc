@@ -28,6 +28,7 @@ set nu
 
 " Turn syntax highlighting on.
 syntax on
+let g:markdown_fenced_languages = ['c', 'cpp', 'yaml', 'python', 'sh']
 
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
@@ -151,13 +152,11 @@ augroup end
 
 let g:vimtex_format_enabled = 1
 
-autocmd BufWritePost *.py call flake8#Flake8()
-let g:flake8_show_in_gutter = 1
-
 " Termdebug
 let g:termdebug_wide=1
 
 " ALE
+let g:ale_virtualtext_cursor = 'all'
 let g:ale_pattern_options = {
       \ 'Termdebug-asm-listing': {'ale_enabled': 0},
       \ }
@@ -203,6 +202,8 @@ Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
 Plug 'wesQ3/vim-windowswap'
+
+Plug 'will133/vim-dirdiff'
 call plug#end()
 
 " Colourscheme
