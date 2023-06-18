@@ -213,6 +213,8 @@ Plug 'wesQ3/vim-windowswap'
 
 Plug 'will133/vim-dirdiff'
 
+Plug 'jamessan/vim-gnupg'
+
 Plug 'Shirk/vim-gas'
 call plug#end()
 
