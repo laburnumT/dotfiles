@@ -88,6 +88,7 @@ augroup end
 augroup commentary
   autocmd!
   autocmd FileType c,cpp,yara setlocal commentstring=//\ %s
+  autocmd FileType gas setlocal commentstring=#\ %s
 augroup end
 
 " Enable spellcheck and linewrapping for certain file types
@@ -101,6 +102,7 @@ augroup filetypes
   autocmd!
   autocmd BufNewFile,BufRead *.yar,*.yara setlocal filetype=yara
   autocmd BufNewFile,BufRead *.ih setlocal filetype=cpp
+  autocmd BufNewFile,BufRead *.gas setlocal filetype=gas
 augroup end
 
 " Set utf-8
@@ -160,6 +162,12 @@ let g:ale_virtualtext_cursor = 'all'
 let g:ale_pattern_options = {
       \ 'Termdebug-asm-listing': {'ale_enabled': 0},
       \ }
+let g:ale_linter_aliases = {
+      \ 'gas': ['asm'],
+      \ }
+let g:ale_linters = {
+      \ 'gas': ['gcc', 'llvm_mc'],
+      \ }
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'
@@ -204,6 +212,10 @@ Plug 'google/vim-glaive'
 Plug 'wesQ3/vim-windowswap'
 
 Plug 'will133/vim-dirdiff'
+
+Plug 'jamessan/vim-gnupg'
+
+Plug 'Shirk/vim-gas'
 call plug#end()
 
 " Colourscheme
