@@ -187,3 +187,4 @@ bar {
 exec --no-startup-id ~/.config/i3/scripts/screens.sh
 exec --no-startup-id dbus-update-activation-environment --all
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
+exec --no-startup-id compton --backend xrender --vsync opengl-swc
