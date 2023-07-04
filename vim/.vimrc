@@ -25,6 +25,11 @@ filetype indent on
 
 " Enable line numbering
 set nu
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
 
 " Turn syntax highlighting on.
 syntax on
@@ -197,8 +202,6 @@ Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp'] }
 
 Plug 'valloric/youcompleteme', { 'do': './install.py --all' }
 
-Plug 'nvie/vim-flake8'
-
 Plug 'tomasiser/vim-code-dark'
 
 Plug 'ryanoasis/vim-devicons'
@@ -210,6 +213,8 @@ Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
 Plug 'wesQ3/vim-windowswap'
+
+Plug 'hashivim/vim-terraform'
 
 Plug 'will133/vim-dirdiff'
 
