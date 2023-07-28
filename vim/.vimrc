@@ -107,7 +107,7 @@ augroup filetypes
   autocmd!
   autocmd BufNewFile,BufRead *.yar,*.yara setlocal filetype=yara
   autocmd BufNewFile,BufRead *.ih setlocal filetype=cpp
-  autocmd BufNewFile,BufRead *.gas setlocal filetype=gas
+  autocmd BufNewFile,BufRead *.gas setlocal filetype=gas autoindent
 augroup end
 
 " Set utf-8
@@ -222,6 +222,10 @@ Plug 'jamessan/vim-gnupg'
 
 Plug 'Shirk/vim-gas'
 call plug#end()
+
+" codefmt
+call glaive#Install()
+Glaive codefmt shfmt_options=`['-i', '8', '-ci', '-bn']`
 
 " Colourscheme
 colorscheme codedark
