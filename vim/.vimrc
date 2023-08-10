@@ -1,9 +1,7 @@
 nnoremap <up> <nop>
 vnoremap <up> <nop>
-inoremap <up> <nop>
 nnoremap <down> <nop>
 vnoremap <down> <nop>
-inoremap <down> <nop>
 nnoremap <left> <nop>
 vnoremap <left> <nop>
 inoremap <left> <nop>
@@ -122,9 +120,19 @@ set clipboard=unnamed
 " Show airline buffers
 let g:airline#extensions#tabline#enabled = 1
 
-let g:ycm_autoclose_preview_window_after_completion = 1
-nnoremap <leader>g :YcmCompleter GoTo<CR>
-let g:ycm_confirm_extra_conf = 0
+" CoC
+let g:coc_global_extensions = [
+      \ 'coc-json',
+      \ 'coc-clangd',
+      \ 'coc-sh',
+      \ 'coc-cl',
+      \ 'coc-go',
+      \ 'coc-jedi',
+      \ 'coc-rust-analyzer'
+      \ ]
+nnoremap <leader>g :call CocActionAsync('jumpDefinition')<CR>
+nnoremap <leader>r :call CocActionAsync('rename')<CR>
+nnoremap <leader>u :call CocActionAsync('jumpUsed')<CR>
 
 " Enable highlighting of C++11 attributes
 let g:cpp_attributes_highlight = 1
@@ -134,9 +142,6 @@ let g:cpp_member_highlight = 1
 
 " Bind format to \f
 nnoremap <leader>f :FormatCode<CR>
-
-" Bind refactor to \r
-nnoremap <leader>r :execute 'YcmCompleter RefactorRename' input( 'Rename to: ' )<CR>
 
 " Don't close buffers when switching
 set hidden
@@ -200,7 +205,7 @@ Plug 'tpope/vim-surround'
 
 Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp'] }
 
-Plug 'valloric/youcompleteme', { 'do': './install.py --all' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'tomasiser/vim-code-dark'
 
