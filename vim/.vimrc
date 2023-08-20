@@ -166,6 +166,13 @@ let g:vimtex_format_enabled = 1
 
 " Termdebug
 let g:termdebug_wide=1
+let g:termdebug_config = {
+      \ 'wide': 1,
+      \ 'disasm_window': 1,
+      \ 'variables_window': 1,
+      \ 'register_window': 1
+      \ }
+
 
 " ALE
 let g:ale_virtualtext_cursor = 'all'
