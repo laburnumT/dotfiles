@@ -179,6 +179,9 @@ let g:ale_linters = {
       \ 'gas': ['gcc', 'llvm_mc'],
       \ }
 
+" Traces
+let g:traces_preview_window = "winwidth('%') > 160 ? 'vnew' : '10new'"
+
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 
@@ -226,6 +229,8 @@ Plug 'will133/vim-dirdiff'
 Plug 'jamessan/vim-gnupg'
 
 Plug 'Shirk/vim-gas'
+
+Plug 'markonm/traces.vim'
 call plug#end()
 
 " codefmt
