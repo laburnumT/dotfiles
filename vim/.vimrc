@@ -133,6 +133,7 @@ let g:coc_global_extensions = [
 nnoremap <leader>g :call CocActionAsync('jumpDefinition')<CR>
 nnoremap <leader>r :call CocActionAsync('rename')<CR>
 nnoremap <leader>u :call CocActionAsync('jumpUsed')<CR>
+nnoremap <leader>i :call CocActionAsync('doHover')<CR>
 
 " Enable highlighting of C++11 attributes
 let g:cpp_attributes_highlight = 1
