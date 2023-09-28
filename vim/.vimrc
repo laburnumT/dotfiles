@@ -190,6 +190,10 @@ let g:ale_linters = {
 " Traces
 let g:traces_preview_window = "winwidth('%') > 160 ? 'vnew' : '10new'"
 
+" GPG
+let g:GPGPreferSign = 1
+let g:GPGDefaultRecipients = ['Laburnum']
+
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 
