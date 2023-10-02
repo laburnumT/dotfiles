@@ -1,0 +1,8 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = laburnumT
+	email = laburnumT@users.noreply.github.com
+	signingkey = FE60245E66DB59FB
+[commit]
+	gpgSign = true
