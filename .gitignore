@@ -1,1 +1,3 @@
 *.swp
+vim/.vim
+!vim/.vim/coc-settings.json
