@@ -4,10 +4,6 @@ Some config files stored in the stow format
 
 `stow <package>`
 
-## SSH
-
-Run `dbus-update-activation-environment --all`
-
 ## Other files
 
 Some files require things like sudo, or aren't as portable.
