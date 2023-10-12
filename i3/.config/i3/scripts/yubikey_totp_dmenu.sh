@@ -22,9 +22,15 @@ copy_clear() {
         local before
         before="$("${paste_cmd[@]}" 2>/dev/null | base64)"
         pkill -f "^${sleep_argv0}" && sleep 0.5
-        ykman oath accounts code -s "${account}" 2>/dev/null | "${copy_cmd[@]}" || exit_i3_nagbar "Failed to copy token"
-        ( 
-                (exec -a "${sleep_argv0}" bash <<<"trap 'kill %1' TERM; sleep '45' & wait")
+        ykman oath accounts code -s "${account}" 2>/dev/null \
+                | "${copy_cmd[@]}" \
+                || exit_i3_nagbar "Failed to copy token"
+        (
+                (
+                        exec -a "${sleep_argv0}" bash <<EOF
+trap 'kill %1' TERM; sleep '45' & wait
+EOF
+                )
                 echo "${before}" | base64 --decode | "${copy_cmd[@]}"
         ) >/dev/null 2>&1 &
         disown
