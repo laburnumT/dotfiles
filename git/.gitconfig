@@ -6,3 +6,5 @@
 	signingkey = FE60245E66DB59FB
 [commit]
 	gpgSign = true
+[init]
+	defaultBranch = main
