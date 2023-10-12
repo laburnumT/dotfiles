@@ -1,5 +1,19 @@
 #!/bin/bash
 
+CLIP_TIME=45
+PROGRAM="${0##*/}"
+
+cmd_help() {
+        cat <<EOF
+Usage: $PROGRAM [options]
+Options:
+  -h, --help         Show help
+  -t, --time <time>  Use <time> as the amount of seconds before the totp is
+                     cleared from the clipboard. Use 0 for never cleared.
+                     (default 45)
+EOF
+}
+
 exit_i3_nagbar() {
         i3-nagbar --message "${@}" >/dev/null 2>&1
         exit 1
@@ -28,7 +42,7 @@ copy_clear() {
         (
                 (
                         exec -a "${sleep_argv0}" bash <<EOF
-trap 'kill %1' TERM; sleep '45' & wait
+trap 'kill %1' TERM; sleep '$CLIP_TIME' & wait
 EOF
                 )
                 echo "${before}" | base64 --decode | "${copy_cmd[@]}"
@@ -60,5 +74,16 @@ main() {
                 exit_i3_nagbar "More than one yubikey inserted"
         fi
 }
+
+case "${1}" in
+        -h | --help)
+                cmd_help
+                exit 0
+                ;;
+        -t | --time)
+                shift
+                CLIP_TIME="${1}"
+                ;;
+esac
 
 main
