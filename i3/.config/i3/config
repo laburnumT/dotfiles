@@ -74,7 +74,7 @@ bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 
 # Get totp code from the yubikey
-bindsym $mod+y exec --no-startup-id ~/.config/i3/scripts/yubikey_totp_dmenu.sh
+bindsym $mod+y exec --no-startup-id ~/.config/i3/scripts/yubikey-totp-dmenu
 
 # change focus
 bindsym $mod+h focus left
@@ -187,5 +187,5 @@ bar {
         tray_output primary
 }
 
-exec --no-startup-id ~/.config/i3/scripts/screens.sh
+exec --no-startup-id ~/.config/i3/scripts/monitors -d
 exec --no-startup-id compton --backend xrender --vsync opengl-swc

@@ -1,0 +1,60 @@
+#!/bin/bash
+
+PROGRAM="${0##*/}"
+PARSER=("$HOME/Documents/xrandr-parse/parse.sh")
+
+cmd_help() {
+        cat <<EOF
+Usage: $PROGRAM [options]
+Options:
+  -h, --help   Show help
+  -s, --save   Save a config (Not implemented)
+  -d, --deploy Deploy a config
+  --hash       Return hash of current xrandr
+EOF
+}
+
+get_connected() {
+        "${PARSER[@]}" | jq 'map(select(.connected == true))'
+}
+
+cmd_hash() {
+        jq -Sc 'map({name, modes})' <<<"$(get_connected)" \
+                | md5sum \
+                | awk '{print $1}'
+}
+
+cmd_save() {
+        echo "Not implemented" 1>&2
+        exit 1
+}
+
+cmd_deploy() {
+        local setup_hash
+        local cmd
+
+        setup_hash="$(cmd_hash)"
+        cmd=("./monitor_scripts/${setup_hash}")
+        "${cmd[@]}"
+}
+
+case "${1}" in
+        -h | --help)
+                cmd_help
+                exit 0
+                ;;
+        -s | --save)
+                cmd_save
+                exit 0
+                ;;
+        -d | --deploy)
+                cmd_deploy
+                exit 0
+                ;;
+        --hash)
+                cmd_hash
+                exit 0
+                ;;
+esac
+
+cmd_help
