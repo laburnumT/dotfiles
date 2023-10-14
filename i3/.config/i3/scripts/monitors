@@ -1,7 +1,8 @@
 #!/bin/bash
 
 PROGRAM="${0##*/}"
-PARSER=("$HOME/Documents/xrandr-parse/parse.sh")
+SCRIPT_DIR="$HOME/.config/i3/scripts"
+PARSER=("${SCRIPT_DIR}/xrandr-parse")
 
 cmd_help() {
         cat <<EOF
@@ -34,7 +35,7 @@ cmd_deploy() {
         local cmd
 
         setup_hash="$(cmd_hash)"
-        cmd=("./monitor_scripts/${setup_hash}")
+        cmd=("${SCRIPT_DIR}/monitor_scripts/${setup_hash}")
         "${cmd[@]}"
 }
 
