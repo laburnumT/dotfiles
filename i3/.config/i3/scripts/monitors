@@ -37,6 +37,26 @@ cmd_deploy() {
         setup_hash="$(cmd_hash)"
         cmd=("${SCRIPT_DIR}/monitor_scripts/${setup_hash}")
         "${cmd[@]}"
+
+        if ! command -v nitrogen >/dev/null \
+                || [[ -z "${NITROGEN_WALLPAPER}" ]]; then
+                return
+        fi
+        (
+                sleep 5
+                monitor_cnt="$(
+                        xrandr --listmonitors \
+                                | head -1 \
+                                | grep -Po "\d+"
+                )"
+                for ((i = 0; i < monitor_cnt; ++i)); do
+                        nitrogen \
+                                --set-scaled \
+                                --head="${i}" \
+                                "${NITROGEN_WALLPAPER}"
+                done
+        ) &
+        disown
 }
 
 case "${1}" in
