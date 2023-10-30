@@ -185,6 +185,7 @@ let g:ale_linter_aliases = {
       \ }
 let g:ale_linters = {
       \ 'gas': ['gcc', 'llvm_mc'],
+      \ 'python': ['flake8'],
       \ }
 
 " Traces
