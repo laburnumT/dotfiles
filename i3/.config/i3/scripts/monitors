@@ -39,7 +39,8 @@ cmd_deploy() {
         "${cmd[@]}"
 
         if ! command -v nitrogen >/dev/null \
-                || [[ -z "${NITROGEN_WALLPAPER}" ]]; then
+                || [[ -z "${NITROGEN_WALLPAPER}" ]] \
+                || [[ ! -f "${NITROGEN_WALLPAPER}" ]]; then
                 return
         fi
         (

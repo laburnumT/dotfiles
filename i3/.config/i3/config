@@ -77,7 +77,7 @@ bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+y exec --no-startup-id ~/.config/i3/scripts/yubikey-totp-dmenu
 
 # Run monitor script
-bindsym $mod+m exec --no-startup-id NITROGEN_WALLPAPER="${HOME}/Pictures/images/wallpaper/3840x2160_sakura.jpg" ~/.config/i3/scripts/monitors -d
+bindsym $mod+m exec --no-startup-id ~/.config/i3/scripts/monitors -d
 
 # change focus
 bindsym $mod+h focus left
@@ -191,3 +191,4 @@ bar {
 }
 
 exec --no-startup-id compton --backend xrender --vsync opengl-swc
+exec --no-startup-id ~/.config/i3/scripts/monitors -d
