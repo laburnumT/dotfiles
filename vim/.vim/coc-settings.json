@@ -8,6 +8,10 @@
     "terraform": {
       "command": "terraform-lsp",
       "filetypes": ["terraform"]
+    },
+    "rascal": {
+      "command": "rascal-lsp",
+      "filetypes": ["rascal"]
     }
   }
 }

@@ -90,7 +90,7 @@ augroup end
 " vim-commentary
 augroup commentary
   autocmd!
-  autocmd FileType c,cpp,yara setlocal commentstring=//\ %s
+  autocmd FileType c,cpp,yara,rascal setlocal commentstring=//\ %s
   autocmd FileType gas setlocal commentstring=#\ %s
 augroup end
 
@@ -106,6 +106,7 @@ augroup filetypes
   autocmd BufNewFile,BufRead *.yar,*.yara setlocal filetype=yara
   autocmd BufNewFile,BufRead *.ih setlocal filetype=cpp
   autocmd BufNewFile,BufRead *.gas setlocal filetype=gas autoindent
+  autocmd BufNewFile,BufRead *.rsc setlocal filetype=rascal
 augroup end
 
 " Set utf-8
@@ -244,6 +245,8 @@ Plug 'jamessan/vim-gnupg'
 Plug 'Shirk/vim-gas'
 
 Plug 'markonm/traces.vim'
+
+Plug 'olistrik/vim-rascal-syntax'
 call plug#end()
 
 " codefmt
