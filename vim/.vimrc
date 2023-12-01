@@ -97,7 +97,7 @@ augroup end
 " Enable spellcheck and linewrapping for certain file types
 augroup spellchecking
   autocmd!
-  autocmd FileType markdown,tex,text setlocal spell tw=79
+  autocmd FileType markdown,tex,text setlocal spell tw=80
 augroup end
 
 " Set filetypes
