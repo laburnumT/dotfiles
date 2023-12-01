@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = laburnumT
-	email = laburnumT@users.noreply.github.com
+	email = laburnumTec@gmail.com
 	signingkey = FE60245E66DB59FB
 [commit]
 	gpgSign = true
