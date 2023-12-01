@@ -1,0 +1,3 @@
+[submodule "email"]
+	path = email
+	url = git@github.com:laburnumT/dotfiles_email.git
