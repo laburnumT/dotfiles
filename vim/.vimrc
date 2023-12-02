@@ -94,10 +94,16 @@ augroup commentary
   autocmd FileType gas setlocal commentstring=#\ %s
 augroup end
 
-" Enable spellcheck and linewrapping for certain file types
+" Enable spellcheck certain file types
 augroup spellchecking
   autocmd!
-  autocmd FileType markdown,tex,text setlocal spell tw=80
+  autocmd FileType markdown,tex,text,mail setlocal spell
+augroup end
+
+" Enable linewrapping for certain file types
+augroup linewrapping
+  autocmd!
+  autocmd FileType markdown,tex,text setlocal tw=80
 augroup end
 
 " Set filetypes
