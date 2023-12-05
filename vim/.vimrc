@@ -202,6 +202,8 @@ let g:traces_preview_window = "winwidth('%') > 160 ? 'vnew' : '10new'"
 let g:GPGPreferSign = 1
 let g:GPGDefaultRecipients = ['Laburnum']
 
+command TabG tabnew | NERDTreeClose | G
+
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 
