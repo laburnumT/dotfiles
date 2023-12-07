@@ -32,6 +32,7 @@ augroup END
 " Turn syntax highlighting on.
 syntax on
 let g:markdown_fenced_languages = ['c', 'cpp', 'yaml', 'python', 'sh', 'bash']
+let c_syntax_for_h = 1
 
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
