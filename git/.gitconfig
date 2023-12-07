@@ -8,3 +8,5 @@
 	gpgSign = true
 [init]
 	defaultBranch = main
+[core]
+	editor = vim
