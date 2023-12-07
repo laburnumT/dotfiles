@@ -98,7 +98,7 @@ augroup end
 " Enable spellcheck certain file types
 augroup spellchecking
   autocmd!
-  autocmd FileType markdown,tex,text,mail setlocal spell
+  autocmd FileType markdown,tex,text,mail,gitcommit setlocal spell
 augroup end
 
 " Enable linewrapping for certain file types
