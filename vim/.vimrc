@@ -174,7 +174,6 @@ augroup end
 let g:vimtex_format_enabled = 1
 
 " Termdebug
-let g:termdebug_wide=1
 let g:termdebug_config = {
       \ 'wide': 1,
       \ 'disasm_window': 1,
