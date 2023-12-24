@@ -132,15 +132,23 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-clangd',
       \ 'coc-sh',
-      \ 'coc-cl',
       \ 'coc-go',
       \ 'coc-jedi',
       \ 'coc-rust-analyzer'
       \ ]
-nnoremap <leader>g :call CocActionAsync('jumpDefinition')<CR>
+
+func s:SbAllowLoad(fileName)
+  exe 'badd ' .. a:fileName
+  exe 'sb ' .. a:fileName
+endfunc
+
+command -nargs=+ SbAllowLoad call s:SbAllowLoad(<f-args>)
+nnoremap <leader>g :call CocActionAsync('jumpDefinition', 'SbAllowLoad')<CR>
 nnoremap <leader>r :call CocActionAsync('rename')<CR>
 nnoremap <leader>u :call CocActionAsync('jumpUsed')<CR>
 nnoremap <leader>i :call CocActionAsync('doHover')<CR>
+
+set switchbuf=useopen
 
 " Enable highlighting of C++11 attributes
 let g:cpp_attributes_highlight = 1
