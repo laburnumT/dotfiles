@@ -34,3 +34,21 @@ Section "InputClass"
 	Option "Tapping" "on"
 EndSection
 ```
+
+## Packages
+
+### email
+
+- fortune (quotes)
+- gpg (decrypt passwords)
+- isync (imap syncing)
+- msmtp (smtp)
+- neomutt (email client)
+- notmuch-addrlookup (address lookups)
+
+### i3
+
+- blueman (bluetooth)
+- compton (compositor)
+- nitrogen (wallpaper)
+- redshift (screen temperature)
