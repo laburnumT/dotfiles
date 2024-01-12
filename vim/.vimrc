@@ -115,6 +115,13 @@ augroup filetypes
   autocmd BufNewFile,BufRead *.rsc setlocal filetype=rascal
 augroup end
 
+" Open help in man
+runtime ftplugin/man.vim
+augroup help_K
+  autocmd!
+  autocmd FileType c setlocal keywordprg=:Man
+augroup end
+
 " Set utf-8
 set encoding=UTF-8
 
