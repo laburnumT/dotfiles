@@ -13,3 +13,5 @@
 [format]
 	thread = shallow
 	coverLetter = auto
+[diff]
+	algorithm = patience
