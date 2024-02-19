@@ -79,6 +79,8 @@ bindsym $mod+y exec --no-startup-id ~/.config/i3/scripts/yubikey-totp-dmenu
 # Run monitor script
 bindsym $mod+m exec --no-startup-id ~/.config/i3/scripts/monitors -d
 
+bindsym $mod+g exec --no-startup-id mbsync -aV && notmuch new
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
