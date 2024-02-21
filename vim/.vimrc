@@ -154,6 +154,7 @@ nnoremap <leader>g :call CocActionAsync('jumpDefinition', 'SbAllowLoad')<CR>
 nnoremap <leader>r :call CocActionAsync('rename')<CR>
 nnoremap <leader>u :call CocActionAsync('jumpUsed')<CR>
 nnoremap <leader>i :call CocActionAsync('doHover')<CR>
+nnoremap <leader>c :call CocActionAsync('codeAction')<CR>
 
 set switchbuf=useopen
 
