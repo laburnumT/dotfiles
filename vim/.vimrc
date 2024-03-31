@@ -136,13 +136,17 @@ let g:airline#extensions#tabline#enabled = 1
 
 " CoC
 let g:coc_global_extensions = [
-      \ 'coc-json',
+      \ '@yaegassy/coc-ansible',
       \ 'coc-clangd',
-      \ 'coc-sh',
       \ 'coc-go',
       \ 'coc-jedi',
-      \ 'coc-rust-analyzer'
+      \ 'coc-json',
+      \ 'coc-rust-analyzer',
+      \ 'coc-sh',
       \ ]
+let g:coc_filetype_map = {
+      \ 'yaml.ansible': 'ansible',
+      \ }
 
 func s:SbAllowLoad(fileName)
   exe 'badd ' .. a:fileName
