@@ -278,6 +278,8 @@ Plug 'Shirk/vim-gas'
 Plug 'markonm/traces.vim'
 
 Plug 'olistrik/vim-rascal-syntax'
+
+Plug 'wellle/context.vim'
 call plug#end()
 
 " codefmt
