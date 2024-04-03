@@ -153,7 +153,7 @@ func s:SbAllowLoad(fileName)
   exe 'sb ' .. a:fileName
 endfunc
 
-command -nargs=+ SbAllowLoad call s:SbAllowLoad(<f-args>)
+command! -nargs=+ SbAllowLoad call s:SbAllowLoad(<f-args>)
 nnoremap <leader>g :call CocActionAsync('jumpDefinition', 'SbAllowLoad')<CR>
 nnoremap <leader>r :call CocActionAsync('rename')<CR>
 nnoremap <leader>u :call CocActionAsync('jumpUsed')<CR>
@@ -222,7 +222,7 @@ let g:GPGPreferSign = 1
 let g:GPGDefaultRecipients = ['Laburnum']
 
 " git
-command TabG tabnew | NERDTreeClose | G
+command! TabG tabnew | NERDTreeClose | G
 let s:git_user = substitute(system("git config user.name"), '\n', '', '')
 let s:git_email = substitute(system("git config user.email"), '\n', '', '')
 let @g = "iSigned-off-by: " .. s:git_user .. " <" .. s:git_email .. ">"
