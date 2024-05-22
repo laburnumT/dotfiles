@@ -190,6 +190,13 @@ bar {
         # status_command i3status
         status_command i3status --config ~/.config/i3/i3status
         tray_output primary
+        bindsym button1 nop
+        bindsym button2 nop
+        bindsym button3 nop
+        bindsym button4 nop
+        bindsym button5 nop
+        bindsym button6 nop
+        bindsym button7 nop
 }
 
 exec --no-startup-id compton --backend xrender --vsync opengl-swc
