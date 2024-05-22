@@ -119,7 +119,7 @@ augroup end
 runtime ftplugin/man.vim
 augroup help_K
   autocmd!
-  autocmd FileType c setlocal keywordprg=:Man
+  autocmd FileType c,cpp setlocal keywordprg=:Man
 augroup end
 
 " Set utf-8
