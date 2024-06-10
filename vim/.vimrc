@@ -21,6 +21,9 @@ filetype plugin on
 " Load an indent file for the detected file type.
 filetype indent on
 
+" Shorten updatetime
+set updatetime=100
+
 " Turn syntax highlighting on.
 syntax on
 let g:markdown_fenced_languages = ['c', 'cpp', 'yaml', 'python', 'sh', 'bash']
@@ -246,6 +249,7 @@ Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'dyng/ctrlsf.vim'
 
