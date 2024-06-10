@@ -21,14 +21,6 @@ filetype plugin on
 " Load an indent file for the detected file type.
 filetype indent on
 
-" Enable line numbering
-set nu
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
-augroup END
-
 " Turn syntax highlighting on.
 syntax on
 let g:markdown_fenced_languages = ['c', 'cpp', 'yaml', 'python', 'sh', 'bash']
@@ -70,6 +62,14 @@ set nofoldenable
 
 " Enable ruler
 set ruler
+
+" Enable line numbering
+set nu
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
 
 " nerdtree
 nnoremap <leader>n :NERDTreeFocus<CR>
