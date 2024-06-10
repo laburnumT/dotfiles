@@ -95,6 +95,7 @@ augroup commentary
   autocmd!
   autocmd FileType c,cpp,yara,rascal setlocal commentstring=//\ %s
   autocmd FileType gas setlocal commentstring=#\ %s
+  autocmd FileType laburnumscript setlocal commentstring=#\ %s
 augroup end
 
 " Enable spellcheck certain file types
@@ -116,6 +117,13 @@ augroup filetypes
   autocmd BufNewFile,BufRead *.ih setlocal filetype=cpp
   autocmd BufNewFile,BufRead *.gas setlocal filetype=gas autoindent
   autocmd BufNewFile,BufRead *.rsc setlocal filetype=rascal
+  autocmd BufNewFile,BufRead *.ls setlocal filetype=laburnumscript syntax=conf
+augroup end
+
+" Set paredit
+augroup paredit_g
+  autocmd!
+  autocmd FileType laburnumscript call PareditInitBuffer()
 augroup end
 
 " Open help in man
@@ -284,6 +292,8 @@ Plug 'markonm/traces.vim'
 Plug 'olistrik/vim-rascal-syntax'
 
 Plug 'wellle/context.vim'
+
+Plug 'vim-scripts/paredit.vim'
 call plug#end()
 
 " codefmt
