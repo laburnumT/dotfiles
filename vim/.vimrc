@@ -121,6 +121,7 @@ augroup filetypes
 augroup end
 
 " Set paredit
+let g:paredit_leader = '\'
 augroup paredit_g
   autocmd!
   autocmd FileType laburnumscript call PareditInitBuffer()
