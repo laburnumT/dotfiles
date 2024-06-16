@@ -187,7 +187,7 @@ nnoremap <leader>f :FormatCode<CR>
 set hidden
 
 " Start server for pdf
-if empty(v:servername) && exists('*remote_startserver')
+if has("clientserver") && empty(v:servername) && exists('*remote_startserver')
   call remote_startserver('VIM')
 endif
 
