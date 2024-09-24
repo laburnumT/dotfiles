@@ -155,6 +155,7 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-rust-analyzer',
       \ 'coc-sh',
+      \ 'coc-texlab',
       \ ]
 let g:coc_filetype_map = {
       \ 'yaml.ansible': 'ansible',
