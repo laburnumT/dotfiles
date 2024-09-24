@@ -241,6 +241,10 @@ let s:git_user = substitute(system("git config user.name"), '\n', '', '')
 let s:git_email = substitute(system("git config user.email"), '\n', '', '')
 let @g = "iSigned-off-by: " .. s:git_user .. " <" .. s:git_email .. ">"
 
+" Maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
+
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 
