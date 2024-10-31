@@ -191,11 +191,13 @@ set hidden
 " Start server for pdf
 if has("clientserver") && empty(v:servername) && exists('*remote_startserver')
   call remote_startserver('VIM')
+  if executable("sioyek")
+    let g:vimtex_view_method = 'sioyek'
+  elseif executable("okular")
+    let g:vimtex_view_general_viewer = 'okular'
+    let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+  endif
 endif
-
-" vim --remote-silent +%l %f
-let g:vimtex_view_general_viewer = 'okular'
-let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 
 let g:vimtex_fold_enabled = 1
 
