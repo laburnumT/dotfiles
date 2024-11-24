@@ -40,7 +40,8 @@ cmd_deploy() {
 
         if ! command -v nitrogen >/dev/null \
                 || [[ -z "${NITROGEN_WALLPAPER}" ]] \
-                || [[ ! -f "${NITROGEN_WALLPAPER}" ]]; then
+                || ([[ ! -f "${NITROGEN_WALLPAPER}" ]] \
+                        && [[ ! -d "${NITROGEN_WALLPAPER}" ]]); then
                 return
         fi
         (
@@ -54,6 +55,7 @@ cmd_deploy() {
                         nitrogen \
                                 --set-scaled \
                                 --head="${i}" \
+                                --random \
                                 "${NITROGEN_WALLPAPER}"
                 done
         ) &

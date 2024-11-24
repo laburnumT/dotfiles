@@ -1,6 +1,6 @@
 if [ $DESKTOP_SESSION = "i3" ] ; then
     export $(gnome-keyring-daemon --start)
-    export NITROGEN_WALLPAPER="${HOME}/Pictures/images/wallpaper/3840x2160_sakura.jpg"
+    export NITROGEN_WALLPAPER="${HOME}/Pictures/images/wallpaper/rotation"
 fi
 
 # vim: ft=bash
