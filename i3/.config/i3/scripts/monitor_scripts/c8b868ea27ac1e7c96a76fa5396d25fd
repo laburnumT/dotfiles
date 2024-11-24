@@ -1,0 +1,11 @@
+#!/bin/bash
+
+xrandr \
+        --output eDP-1 --primary --mode 1920x1080 --pos 904x2160 --rotate normal \
+        --output DP-1-0 --off \
+        --output DP-1-1 --mode 3840x2160 --pos 0x0 --rotate normal \
+        --output HDMI-1-0 --mode 1920x1080 --pos 2824x2160 --rotate normal
+
+i3-msg 'workspace 1; move workspace to output DP-1-1'
+i3-msg 'workspace 2; move workspace to output eDP-1'
+i3-msg 'workspace 3; move workspace to output HDMI-1-0'
