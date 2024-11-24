@@ -15,10 +15,13 @@ For screen tearing on external monitors
 ```xf86conf
 Section "Device"
     Identifier    "Intel Graphics"
-    Driver        "intel"
+    Driver        "XXX"
     Option        "TearFree"  "true"
 EndSection
 ```
+
+Replace XXX with the driver in use found using
+`sudo lspci -k | grep -EA3 'VGA|3D|Display'`
 
 ### /usr/share/X11/xorg.conf.d/40-libinput.conf
 
