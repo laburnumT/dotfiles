@@ -55,3 +55,8 @@ EndSection
 - compton (compositor)
 - nitrogen (wallpaper)
 - redshift (screen temperature)
+
+### Printing and scanning
+
+- system-config-printer
+- simple-scan
