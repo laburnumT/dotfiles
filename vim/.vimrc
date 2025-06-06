@@ -26,8 +26,9 @@ set updatetime=100
 
 " Turn syntax highlighting on.
 syntax on
-let g:markdown_fenced_languages = ['c', 'cpp', 'yaml', 'python', 'sh', 'bash', 'java']
+let g:markdown_fenced_languages = ['c', 'cpp', 'yaml', 'python', 'sh', 'bash', 'vim']
 let g:c_syntax_for_h = 1
+let g:java_ignore_javadoc = 1
 
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
