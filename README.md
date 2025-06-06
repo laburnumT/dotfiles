@@ -33,8 +33,8 @@ Section "InputClass"
         MatchIsTouchpad "on"
         MatchDevicePath "/dev/input/event*"
         Driver "libinput"
-	Option "NaturalScrolling" "True"
-	Option "Tapping" "on"
+        Option "NaturalScrolling" "True"
+        Option "Tapping" "on"
 EndSection
 ```
 
