@@ -205,5 +205,5 @@ bar {
         bindsym button7 nop
 }
 
-exec --no-startup-id picom --vsync
+exec --no-startup-id picom --vsync --daemon
 exec --no-startup-id ~/.config/i3/scripts/monitors -d
