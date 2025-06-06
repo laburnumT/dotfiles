@@ -36,7 +36,7 @@ copy_clear() {
         local paste_cmd=(xclip -out -selection clipboard)
         local sleep_argv0="yubikey_totp_dmenu sleep"
         local before
-        before="$("${paste_cmd[@]}" 2>/dev/null | base64)"
+        before="$("${paste_cmd[@]}" 2>/dev/null | base64 || echo "NOTHING" | base64)"
         pkill -f "^${sleep_argv0}" && sleep 0.5
         ykman oath accounts code -s "${account}" 2>/dev/null \
                 | "${copy_cmd[@]}" \
