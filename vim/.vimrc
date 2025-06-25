@@ -143,6 +143,9 @@ set backspace=indent,eol,start
 
 " Use system clipboard
 set clipboard=unnamed
+if executable("xsel")
+  autocmd VimLeave * call system("xsel -ib", getreg('+'))
+endif
 
 " Show airline buffers
 let g:airline#extensions#tabline#enabled = 1
