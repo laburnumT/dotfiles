@@ -242,7 +242,7 @@ let g:GPGPreferSign = 1
 let g:GPGDefaultRecipients = ['Laburnum']
 
 " git
-command! TabG tabnew | NERDTreeClose | G
+command! TabG tabnew | NERDTreeClose | G | only
 let s:git_user = substitute(system("git config user.name"), '\n', '', '')
 let s:git_email = substitute(system("git config user.email"), '\n', '', '')
 let @g = "iSigned-off-by: " .. s:git_user .. " <" .. s:git_email .. ">"
