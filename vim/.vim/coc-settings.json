@@ -9,5 +9,6 @@
       "command": "terraform-lsp",
       "filetypes": ["terraform"]
     }
-  }
+  },
+  "coc.source.dictionary.filetypes": ["vimwiki"]
 }

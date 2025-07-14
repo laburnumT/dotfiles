@@ -251,6 +251,62 @@ let @g = "iSigned-off-by: " .. s:git_user .. " <" .. s:git_email .. ">"
 vmap < <gv
 vmap > >gv
 
+" vimwiki
+let g:vimwiki_list = [{
+      \ 'path': '~/Documents/vimwiki',
+      \ 'syntax': 'markdown',
+      \ 'ext': 'md',
+      \ 'diary_rel_path': 'journal',
+      \ }]
+let g:vimwiki_global_ext = 0
+let g:vimwiki_auto_header = 1
+let s:vimwiki_path_stuff = g:vimwiki_list[0]['path'] .. "/" .. g:vimwiki_list[0]['diary_rel_path']
+
+augroup vimwiki_
+  autocmd!
+  autocmd BufNewFile,BufRead ~/Documents/vimwiki/journal/**   exe 'setlocal dictionary+=' .. join(globpath(s:vimwiki_path_stuff, '*', 0, 1), ',')
+augroup END
+
+" calendar
+let g:calendar_first_day = 'monday'
+let g:calendar_google_calendar = 1
+nnoremap <leader>cal :Calendar -view=day -position=topleft -split=vertical -width=27<CR>
+nnoremap <leader>caL :Calendar -view=year -position=topright -split=horizontal -height=12<CR>
+
+function! s:prefix_zero(num) abort
+  if a:num < 10
+    return '0'.a:num
+  endif
+  return a:num
+endfunction
+
+" Callback function for Calendar.vim
+function! DiaryDay(day, month, year, week, dir, wnum) abort
+  let day = s:prefix_zero(a:day)
+  let month = s:prefix_zero(a:month)
+
+  let link = a:year.'-'.month.'-'.day
+  if winnr('#') == 0
+    if a:dir ==? 'V'
+      vsplit
+    else
+      split
+    endif
+  else
+    wincmd p
+    if !&hidden && &modified
+      new
+    endif
+  endif
+
+  call vimwiki#diary#make_note(a:wnum, 0, link)
+endfunction
+
+augroup calendar
+  autocmd!
+  autocmd FileType calendar nmap <buffer> <CR> :call DiaryDay(b:calendar.day().get_day(), b:calendar.day().get_month(), b:calendar.day().get_year(), b:calendar.day().week(), "V", v:count1)<CR>
+augroup END
+
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 
@@ -307,6 +363,9 @@ Plug 'olistrik/vim-rascal-syntax'
 Plug 'wellle/context.vim'
 
 Plug 'vim-scripts/paredit.vim'
+
+Plug 'vimwiki/vimwiki'
+Plug 'itchyny/calendar.vim'
 call plug#end()
 
 " codefmt
