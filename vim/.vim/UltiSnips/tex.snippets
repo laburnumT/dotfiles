@@ -1,0 +1,37 @@
+snippet tt "The \texttt{} command for typewriter-style font"
+\texttt{$1}$0
+endsnippet
+
+snippet frame
+\begin{frame}[$1]
+  ${0:${VISUAL}}
+\end{frame}
+endsnippet
+
+snippet block
+\begin{block}{$1}
+  ${0:${VISUAL}}
+\end{block}
+endsnippet
+
+snippet onlyenv
+\begin{onlyenv}<$1>
+  ${0:${VISUAL}}
+\end{onlyenv}
+endsnippet
+
+snippet lst
+\begin{lstlisting}[$1]
+  ${0:${VISUAL}}
+\end{lstlisting}
+endsnippet
+
+snippet lstc
+\begin{lstlisting}[language=c, style=customc]
+  ${0:${VISUAL}}
+\end{lstlisting}
+endsnippet
+
+snippet lstic
+\lstinline[language=c, style=customc]{${1:${VISUAL}}}$0
+endsnippet

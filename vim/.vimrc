@@ -370,6 +370,8 @@ Plug 'vim-scripts/paredit.vim'
 
 Plug 'vimwiki/vimwiki'
 Plug 'itchyny/calendar.vim'
+
+Plug 'sirver/UltiSnips'
 call plug#end()
 
 " codefmt
