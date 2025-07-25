@@ -257,6 +257,10 @@ let g:vimwiki_list = [{
       \ 'syntax': 'markdown',
       \ 'ext': 'md',
       \ 'diary_rel_path': 'journal',
+      \ 'auto_diary_index': 1,
+      \ 'auto_generate_links': 1,
+      \ 'auto_tags': 1,
+      \ 'auto_generate_tags': 1,
       \ }]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_auto_header = 1
