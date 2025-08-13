@@ -252,6 +252,9 @@ vmap < <gv
 vmap > >gv
 
 " vimwiki
+let g:vimwiki_key_mappings = {
+      \ 'table_mappings': 0,
+      \ }
 let g:vimwiki_list = [{
       \ 'path': '~/Documents/vimwiki',
       \ 'syntax': 'markdown',
