@@ -272,6 +272,8 @@ let s:vimwiki_path_stuff = g:vimwiki_list[0]['path'] .. "/" .. g:vimwiki_list[0]
 augroup vimwiki_
   autocmd!
   autocmd BufNewFile,BufRead ~/Documents/vimwiki/journal/**   exe 'setlocal dictionary+=' .. join(globpath(s:vimwiki_path_stuff, '*', 0, 1), ',')
+  autocmd FileType vimwiki :inoremap <buffer> <C-J> <Plug>VimwikiTableNextCell
+  autocmd FileType vimwiki :inoremap <buffer> <C-K> <Plug>VimwikiTablePrevCell
 augroup END
 
 " calendar
