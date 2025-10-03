@@ -22,16 +22,24 @@ endsnippet
 
 snippet lst
 \begin{lstlisting}[$1]
-  ${0:${VISUAL}}
+${0:${VISUAL}}
 \end{lstlisting}
 endsnippet
 
 snippet lstc
 \begin{lstlisting}[language=c, style=customc]
-  ${0:${VISUAL}}
+${0:${VISUAL}}
 \end{lstlisting}
+endsnippet
+
+snippet lsti
+\lstinline[$1]{${2:${VISUAL}}}$0
 endsnippet
 
 snippet lstic
 \lstinline[language=c, style=customc]{${1:${VISUAL}}}$0
+endsnippet
+
+snippet lstinputc
+\lstinputlisting[language=c, style=customc]{${1:${VISUAL}}}$0
 endsnippet
