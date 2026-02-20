@@ -173,7 +173,7 @@ endfunc
 command! -nargs=+ SbAllowLoad call s:SbAllowLoad(<f-args>)
 nnoremap <leader>g :call CocActionAsync('jumpDefinition', 'SbAllowLoad')<CR>
 nnoremap <leader>r :call CocActionAsync('rename')<CR>
-nnoremap <leader>u :call CocActionAsync('jumpUsed')<CR>
+nnoremap <leader>u :call CocActionAsync('jumpUsed', 'SbAllowLoad')<CR>
 nnoremap <leader>i :call CocActionAsync('doHover')<CR>
 nnoremap <leader>c :call CocActionAsync('codeAction')<CR>
 nnoremap <leader>e <Plug>(coc-codeaction-cursor)
@@ -204,22 +204,20 @@ if has("clientserver") && empty(v:servername) && exists('*remote_startserver')
 endif
 
 let g:vimtex_fold_enabled = 1
+let g:vimtex_format_enabled = 1
 
 augroup vimTex
   autocmd!
   autocmd FileType tex setlocal foldmethod=expr foldexpr=vimtex#fold#level(v:lnum)
 augroup end
 
-let g:vimtex_format_enabled = 1
-
 " Termdebug
 let g:termdebug_config = {
       \ 'wide': 1,
-      \ 'disasm_window': 1,
-      \ 'variables_window': 1,
-      \ 'register_window': 1
+      \ 'disasm_window': 0,
+      \ 'variables_window': 0,
+      \ 'register_window': 0
       \ }
-
 
 " ALE
 let g:ale_virtualtext_cursor = 'all'
@@ -272,13 +270,16 @@ let s:vimwiki_path_stuff = g:vimwiki_list[0]['path'] .. "/" .. g:vimwiki_list[0]
 augroup vimwiki_
   autocmd!
   autocmd BufNewFile,BufRead ~/Documents/vimwiki/journal/**   exe 'setlocal dictionary+=' .. join(globpath(s:vimwiki_path_stuff, '*', 0, 1), ',')
-  autocmd FileType vimwiki :inoremap <C-J> <Plug>VimwikiTableNextCell
-  autocmd FileType vimwiki :inoremap <C-K> <Plug>VimwikiTablePrevCell
+  autocmd FileType vimwiki :inoremap <buffer> <C-J> <Plug>VimwikiTableNextCell
+  autocmd FileType vimwiki :inoremap <buffer> <C-K> <Plug>VimwikiTablePrevCell
+  autocmd FileType vimwiki :nnoremap <buffer> <leader><CR> <Plug>VimwikiVSplitLink
+  autocmd FileType vimwiki :silent! unmap <buffer> <C-Space>
+  autocmd FileType vimwiki :silent! unmap <buffer> <C-@>
+  autocmd FileType vimwiki :nnoremap <buffer> <Space> <Plug>VimwikiToggleListItem
 augroup END
 
 " calendar
 let g:calendar_first_day = 'monday'
-let g:calendar_google_calendar = 1
 nnoremap <leader>cal :Calendar -view=day -position=topleft -split=vertical -width=27<CR>
 nnoremap <leader>caL :Calendar -view=year -position=topright -split=horizontal -height=12<CR>
 
@@ -315,6 +316,14 @@ augroup calendar
   autocmd!
   autocmd FileType calendar nmap <buffer> <CR> :call DiaryDay(b:calendar.day().get_day(), b:calendar.day().get_month(), b:calendar.day().get_year(), b:calendar.day().week(), "V", v:count1)<CR>
 augroup END
+
+" Open files window
+nnoremap <leader>F :Files<CR>
+nnoremap <leader>B :Buffers<CR>
+nnoremap <leader>/ :Lines<CR>
+
+" CtrlSpace
+nnoremap <C-Space> :CtrlSpace<CR>
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'
@@ -379,6 +388,8 @@ Plug 'itchyny/calendar.vim'
 Plug 'sirver/UltiSnips'
 
 Plug 'dhruvasagar/vim-table-mode'
+
+Plug 'vim-ctrlspace/vim-ctrlspace'
 call plug#end()
 
 " codefmt
