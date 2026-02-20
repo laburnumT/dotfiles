@@ -8,6 +8,10 @@
     "terraform": {
       "command": "terraform-lsp",
       "filetypes": ["terraform"]
+    },
+    "asm-lsp": {
+      "command": "asm-lsp",
+      "filetypes": ["asm"]
     }
   },
   "coc.source.dictionary.filetypes": ["vimwiki"]
