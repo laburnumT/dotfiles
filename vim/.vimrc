@@ -97,6 +97,7 @@ augroup commentary
   autocmd FileType c,cpp,yara,rascal setlocal commentstring=//\ %s
   autocmd FileType gas setlocal commentstring=#\ %s
   autocmd FileType laburnumscript setlocal commentstring=#\ %s
+  autocmd FileType markdown,vimwiki setlocal commentstring=[%s]:\ #
 augroup end
 
 " Enable spellcheck certain file types
@@ -262,6 +263,7 @@ let g:vimwiki_list = [{
       \ 'auto_generate_links': 1,
       \ 'auto_tags': 1,
       \ 'auto_generate_tags': 1,
+      \ 'links_space_char' : '_',
       \ }]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_auto_header = 1
