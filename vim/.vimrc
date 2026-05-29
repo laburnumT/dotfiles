@@ -189,6 +189,7 @@ let g:cpp_member_highlight = 1
 
 " Bind format to \f
 nnoremap <leader>f :FormatCode<CR>
+vnoremap <leader>f :FormatLines<CR>
 
 " Don't close buffers when switching
 set hidden
