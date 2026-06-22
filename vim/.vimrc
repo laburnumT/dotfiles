@@ -299,6 +299,11 @@ augroup vimwiki_
   autocmd FileType vimwiki :silent! unmap <buffer> <C-Space>
   autocmd FileType vimwiki :silent! unmap <buffer> <C-@>
   autocmd FileType vimwiki :nnoremap <buffer> <Space> <Plug>VimwikiToggleListItem
+  autocmd FileType vimwiki :nnoremap <buffer> <leader>dd "=strftime('%Y-%m-%d')<CR>p
+  autocmd FileType vimwiki :nnoremap <buffer> <leader>dt "=strftime('%H:%M')<CR>p
+  autocmd FileType vimwiki :nnoremap <buffer> <leader>dts "=strftime('%H:%M:%S')<CR>p
+  autocmd FileType vimwiki :nnoremap <buffer> <leader>df "=strftime('%Y-%m-%dT%H:%M')<CR>p
+  autocmd FileType vimwiki :nnoremap <buffer> <leader>dfs "=strftime('%Y-%m-%dT%H:%M:%S')<CR>p
   autocmd FileType vimwiki setlocal foldmethod=expr | set foldexpr=VimwikiFoldCustom(v:lnum)
 augroup END
 
