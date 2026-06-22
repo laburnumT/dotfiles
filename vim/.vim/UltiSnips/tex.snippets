@@ -49,3 +49,29 @@ snippet displaymath
   ${0:${VISUAL}}
 \end{displaymath}
 endsnippet
+
+snippet document
+\documentclass{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[margin=25mm]{geometry}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage[parfill]{parskip}
+\apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
+\usepackage[nounderscore]{syntax}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{silence}
+
+\begin{document}
+
+PLACEHOLDER$0
+
+\end{document}
+endsnippet
