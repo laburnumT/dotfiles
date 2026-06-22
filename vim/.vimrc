@@ -176,8 +176,11 @@ nnoremap <leader>g :call CocActionAsync('jumpDefinition', 'SbAllowLoad')<CR>
 nnoremap <leader>r :call CocActionAsync('rename')<CR>
 nnoremap <leader>u :call CocActionAsync('jumpUsed', 'SbAllowLoad')<CR>
 nnoremap <leader>i :call CocActionAsync('doHover')<CR>
+nnoremap <leader>I :call CocActionAsync('doHover', "preview")<CR>
 nnoremap <leader>c :call CocActionAsync('codeAction')<CR>
 nnoremap <leader>e <Plug>(coc-codeaction-cursor)
+nnoremap <silent><expr> <c-j> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "\<c-j>"
+nnoremap <silent><expr> <c-k> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "\<c-k>"
 
 set switchbuf=useopen
 
@@ -269,6 +272,23 @@ let g:vimwiki_list = [{
 let g:vimwiki_global_ext = 0
 let g:vimwiki_auto_header = 1
 let s:vimwiki_path_stuff = g:vimwiki_list[0]['path'] .. "/" .. g:vimwiki_list[0]['diary_rel_path']
+let g:vimwiki_folding = "custom"
+
+function! VimwikiFoldCustom(lnum)
+  let pounds = strlen(matchstr(getline(a:lnum), '^#\+'))
+  if (pounds == 1)
+    return '-1'
+  endif
+  if (pounds)
+    return '>' . pounds  " start a fold level
+  endif
+  if getline(a:lnum) =~? '\v^\s*$'
+    if (strlen(matchstr(getline(a:lnum + 1), '^#\+')))
+      return '-1' " don't fold last blank line before header
+    endif
+  endif
+  return '=' " return previous fold level
+endfunction
 
 augroup vimwiki_
   autocmd!
@@ -279,6 +299,7 @@ augroup vimwiki_
   autocmd FileType vimwiki :silent! unmap <buffer> <C-Space>
   autocmd FileType vimwiki :silent! unmap <buffer> <C-@>
   autocmd FileType vimwiki :nnoremap <buffer> <Space> <Plug>VimwikiToggleListItem
+  autocmd FileType vimwiki setlocal foldmethod=expr | set foldexpr=VimwikiFoldCustom(v:lnum)
 augroup END
 
 " calendar
@@ -329,6 +350,9 @@ nnoremap <leader>/ :Lines<CR>
 
 " CtrlSpace
 nnoremap <C-Space> :CtrlSpace<CR>
+
+" Call python on visual selection
+xnoremap <Leader>p c<C-R>=py3eval(@")<CR><Esc>
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'
@@ -395,6 +419,8 @@ Plug 'sirver/UltiSnips'
 Plug 'dhruvasagar/vim-table-mode'
 
 Plug 'vim-ctrlspace/vim-ctrlspace'
+
+Plug 'habamax/vim-shout'
 call plug#end()
 
 " codefmt
