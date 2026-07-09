@@ -97,7 +97,7 @@ augroup commentary
   autocmd FileType c,cpp,yara,rascal setlocal commentstring=//\ %s
   autocmd FileType gas setlocal commentstring=#\ %s
   autocmd FileType laburnumscript setlocal commentstring=#\ %s
-  autocmd FileType markdown,vimwiki setlocal commentstring=[%s]:\ #
+  autocmd FileType markdown,vimwiki setlocal commentstring=<!--\ %s\ -->
 augroup end
 
 " Enable spellcheck certain file types
@@ -268,6 +268,7 @@ let g:vimwiki_list = [{
       \ 'auto_tags': 1,
       \ 'auto_generate_tags': 1,
       \ 'links_space_char' : '_',
+      \ 'listsyms': ' .o0x'
       \ }]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_auto_header = 1
@@ -359,6 +360,13 @@ nnoremap <C-Space> :CtrlSpace<CR>
 " Call python on visual selection
 xnoremap <Leader>p c<C-R>=py3eval(@")<CR><Esc>
 
+let g:medieval_langs = ['python=python3', 'sh', 'bash']
+
+augroup medieval_
+  autocmd!
+  autocmd FileType vimwiki,markdown :nnoremap <C-C> <Plug>(medieval-eval)
+augroup END
+
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 
@@ -426,6 +434,8 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 
 Plug 'habamax/vim-shout'
+
+Plug 'gpanders/vim-medieval'
 call plug#end()
 
 " codefmt
