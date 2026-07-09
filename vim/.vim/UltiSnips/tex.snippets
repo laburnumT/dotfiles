@@ -4,6 +4,7 @@ endsnippet
 
 snippet frame
 \begin{frame}[$1]
+  \frametitle{$2}
   ${0:${VISUAL}}
 \end{frame}
 endsnippet
@@ -72,6 +73,20 @@ snippet document
 \begin{document}
 
 PLACEHOLDER$0
+
+\end{document}
+endsnippet
+
+snippet beamer
+\documentclass{beamer}
+\title{${1:TITLE}}
+\author{${2:AUTHOR}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+$0
 
 \end{document}
 endsnippet
