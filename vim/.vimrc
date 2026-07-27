@@ -312,6 +312,7 @@ augroup END
 let g:calendar_first_day = 'monday'
 let g:calendar_week_number = 1
 let g:calendar_cache_directory='~/Documents/vimwiki/.calendar_cache'
+let g:calendar_date_endian = 'little'
 nnoremap <leader>cal :Calendar -view=day -position=topleft -split=vertical -width=27<CR>
 nnoremap <leader>caL :Calendar -view=year -position=topright -split=horizontal -height=12<CR>
 
